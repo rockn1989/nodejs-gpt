@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const app = express();
 
@@ -7,7 +9,7 @@ const errorHandler = require("./middleware/errorHandler.js");
 
 app.use(express.json());
 app.use(logger);
-app.use("/", notesRoutes);
+app.use("/notes", notesRoutes);
 
 app.use(errorHandler);
 
