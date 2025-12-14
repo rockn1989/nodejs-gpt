@@ -3,8 +3,8 @@
 const fs = require("fs/promises");
 const { resolve } = require("path");
 
-async function saveData(notes) {
-  const filePath = resolve(__dirname, "./data.json");
+async function saveNotes(notes) {
+  const filePath = resolve(__dirname, "../data/data.json");
 
   try {
     const stats = await fs.stat(filePath);
@@ -19,4 +19,4 @@ async function saveData(notes) {
   }
 }
 
-module.exports = saveData;
+module.exports = saveNotes;

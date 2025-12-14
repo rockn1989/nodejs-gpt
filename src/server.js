@@ -9,7 +9,7 @@ const errorHandler = require("./middleware/errorHandler.js");
 
 app.use(express.json());
 app.use(logger);
-app.use("/notes", notesRoutes);
+app.use("/api/notes", notesRoutes);
 
 app.use(errorHandler);
 
