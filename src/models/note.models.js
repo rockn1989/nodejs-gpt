@@ -1,4 +1,4 @@
-async function createNote({ title, content }) {
+function createNote({ title, content }) {
   const now = new Date().toISOString();
 
   return {
@@ -10,7 +10,7 @@ async function createNote({ title, content }) {
   };
 }
 
-async function updateNote(note, data) {
+function updateNote(note, data) {
   return {
     ...note,
     ...data,
