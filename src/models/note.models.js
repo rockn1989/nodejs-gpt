@@ -6,7 +6,7 @@ async function createNote({ title, content }) {
     title,
     content,
     createdAt: now,
-    updateAt: now,
+    updatedAt: now,
   };
 }
 

@@ -17,10 +17,6 @@ const getNoteById = async (id) => {
 const createNote = async (data) => {
   const notes = await loadNotes();
 
-  const index = notes.findIndex((n) => n.id === data.id);
-
-  if (index > 0) throw new Error("Exists note");
-
   const { title, content } = data;
 
   const newNote = NoteModel.createNote({
