@@ -1,5 +1,6 @@
 "use strict";
 
+const { HttpCode } = require("../constants.js");
 const notesService = require("../service/notesService.js");
 
 const getAll = async (req, res, next) => {
@@ -23,7 +24,7 @@ const getOne = async (req, res, next) => {
 const create = async (req, res, next) => {
   try {
     const newNote = await notesService.createNote(req.body);
-    res.status(201).json(newNote);
+    res.status(HttpCode.CREATED).json(newNote);
   } catch (err) {
     next(err);
   }

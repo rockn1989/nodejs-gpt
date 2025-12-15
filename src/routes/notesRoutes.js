@@ -3,7 +3,8 @@
 const { Router } = require(`express`);
 const notesController = require("../controllers/notesController.js");
 const noteValidate = require("../middleware/noteValidate.js");
-const NoteSchema = require("../schema/note.schema.js");
+const NoteCreateSchema = require("../schema/note.create.schema.js");
+const NoteUpdateSchema = require("../schema/note.update.schema.js");
 
 const notesRoutes = new Router();
 
@@ -11,9 +12,9 @@ notesRoutes.get("/", notesController.getAll);
 
 notesRoutes.get("/:id", notesController.getOne);
 
-notesRoutes.post("/", noteValidate(NoteSchema), notesController.create);
+notesRoutes.post("/", noteValidate(NoteCreateSchema), notesController.create);
 
-notesRoutes.put("/:id", notesController.update);
+notesRoutes.put("/:id", noteValidate(NoteUpdateSchema), notesController.update);
 
 notesRoutes.delete("/:id", notesController.remove);
 

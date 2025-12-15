@@ -1,4 +1,5 @@
 "use strict";
+const { HttpCode } = require("../constants.js");
 
 function errorHandler(err, req, res, next) {
   if (err.isOperational) {
@@ -9,7 +10,7 @@ function errorHandler(err, req, res, next) {
 
   console.error(err);
 
-  res.status(500).json({
+  res.status(HttpCode.INTERNAL_SERVER_ERROR).json({
     error: "Internal server error",
   });
 }

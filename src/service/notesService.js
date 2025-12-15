@@ -38,7 +38,13 @@ const updateNote = async (id, data) => {
   if (index === -1) throw new NotFoundError("Note not found");
 
   const { title, content } = data;
-  notes[index] = NoteModel.updateNote(notes[index], { title, content });
+
+  const updateNotes = {
+    title: title ?? notes[index].title,
+    content: content ?? notes[index].content,
+  };
+
+  notes[index] = NoteModel.updateNote(notes[index], updateNotes);
   await saveNotes(notes);
 
   return notes[index];
