@@ -1,22 +1,17 @@
 "use strict";
 
 const fs = require("fs/promises");
-const { resolve } = require("path");
+const { resolve, dirname } = require("path");
+
+const file = process.env.NODE_ENV === "test" ? "data.test.json" : "data.json";
 
 async function saveNotes(notes) {
-  const filePath = resolve(__dirname, "../data/data.json");
+  const filePath = resolve(__dirname, `../data/${file}`);
+  const dir = dirname(filePath);
 
-  try {
-    const stats = await fs.stat(filePath);
+  await fs.mkdir(dir, { recursive: true });
 
-    if (stats.size === 0) {
-      await fs.writeFile(filePath, JSON.stringify(notes), "utf-8");
-    } else {
-      await fs.writeFile(filePath, JSON.stringify(notes), "utf-8");
-    }
-  } catch (error) {
-    throw new Error("Error:" + error.message);
-  }
+  await fs.writeFile(filePath, JSON.stringify(notes, null, 2));
 }
 
 module.exports = saveNotes;

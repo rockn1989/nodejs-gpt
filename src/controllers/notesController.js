@@ -6,7 +6,7 @@ const notesService = require("../service/notesService.js");
 const getAll = async (req, res, next) => {
   try {
     const notes = await notesService.getAllNotes();
-    res.json(notes);
+    res.status(HttpCode.OK).json(notes);
   } catch (err) {
     next(err);
   }
@@ -15,7 +15,7 @@ const getAll = async (req, res, next) => {
 const getOne = async (req, res, next) => {
   try {
     const note = await notesService.getNoteById(req.params.id);
-    res.json(note);
+    res.status(HttpCode.OK).json(note);
   } catch (err) {
     next(err);
   }
@@ -42,7 +42,7 @@ const update = async (req, res, next) => {
 const remove = async (req, res, next) => {
   try {
     const deleted = await notesService.deleteNote(req.params.id);
-    res.json({ success: true });
+    res.status(HttpCode.DELETED).json(deleted);
   } catch (err) {
     next(err);
   }
