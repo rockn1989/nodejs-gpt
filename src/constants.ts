@@ -19,4 +19,6 @@ const HttpCode = {
 	INTERNAL_SERVER_ERROR: 500,
 };
 
-export { HttpCode, NOTE_SCHEMA };
+const PATH_OF_API_LOG = './logs/api.log';
+
+export { HttpCode, NOTE_SCHEMA, PATH_OF_API_LOG };

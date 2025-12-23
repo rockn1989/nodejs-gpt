@@ -1,22 +1,23 @@
-import { NoteBase } from '../types/note';
+import { CreateNote, NoteResponse, UpdateNote } from '../types/note';
 
-import * as NoteModel from '../models/note.models';
+import * as NoteModel from '../models/note.model';
 
+import { mapNoteToResponseDto } from '../dto/notes.dto';
 import { NotFoundError } from '../errors/NotFoundError';
 import loadNotes from '../utils/loadNotes.utils';
 import saveNotes from '../utils/saveNotes.utils';
 
 const getAllNotes = async () => loadNotes();
 
-const getNoteById = async (id: string): Promise<NoteBase> => {
+const getNoteById = async (id: string): Promise<NoteResponse> => {
 	const notes = await loadNotes();
 	const note = notes.find((n) => n.id === id);
 
 	if (!note) throw new NotFoundError('Note not found');
-	return note;
+	return mapNoteToResponseDto(note);
 };
 
-const createNote = async (data: NoteBase): Promise<NoteBase> => {
+const createNote = async (data: CreateNote): Promise<NoteResponse> => {
 	const notes = await loadNotes();
 
 	const { title, content } = data;
@@ -29,10 +30,10 @@ const createNote = async (data: NoteBase): Promise<NoteBase> => {
 	notes.push(newNote);
 	await saveNotes(notes);
 
-	return newNote;
+	return mapNoteToResponseDto(newNote);
 };
 
-const updateNote = async (id: string, data: Pick<NoteBase, 'title' | 'content'>): Promise<NoteBase> => {
+const updateNote = async (id: string, data: UpdateNote): Promise<NoteResponse> => {
 	const notes = await loadNotes();
 	const index = notes.findIndex((n) => n.id === id);
 	const note = notes[index];
@@ -53,10 +54,10 @@ const updateNote = async (id: string, data: Pick<NoteBase, 'title' | 'content'>)
 
 	await saveNotes(notes);
 
-	return updatedNote;
+	return mapNoteToResponseDto(updatedNote);
 };
 
-const deleteNote = async (id: string): Promise<NoteBase> => {
+const deleteNote = async (id: string): Promise<NoteResponse> => {
 	const notes = await loadNotes();
 	const index = notes.findIndex((n) => n.id === id);
 
@@ -70,7 +71,7 @@ const deleteNote = async (id: string): Promise<NoteBase> => {
 	notes.splice(index, 1);
 	await saveNotes(notes);
 
-	return deleted;
+	return mapNoteToResponseDto(deleted);
 };
 
 export { createNote, deleteNote, getAllNotes, getNoteById, updateNote };

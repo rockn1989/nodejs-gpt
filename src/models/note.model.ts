@@ -1,4 +1,4 @@
-import { CreateNote, NoteBase } from '../types/note';
+import { CreateNote, NoteResponse } from '../types/note';
 
 function createNote({ title, content }: CreateNote) {
 	const now = new Date().toISOString();
@@ -12,7 +12,7 @@ function createNote({ title, content }: CreateNote) {
 	};
 }
 
-function updateNote(note: NoteBase, data: Partial<CreateNote>) {
+function updateNote(note: NoteResponse, data: Partial<CreateNote>) {
 	return {
 		...note,
 		...data,

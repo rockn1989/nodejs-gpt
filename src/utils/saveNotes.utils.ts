@@ -1,11 +1,11 @@
-import { NoteBase } from '../types/note';
+import { NoteResponse } from '../types/note';
 
 import fs from 'fs/promises';
 import { dirname, resolve } from 'path';
 
 const file = process.env.NODE_ENV === 'test' ? 'data.test.json' : 'data.json';
 
-async function saveNotes(notes: NoteBase[]) {
+async function saveNotes(notes: NoteResponse[]) {
 	const filePath = resolve(__dirname, `../data/${file}`);
 	const dir = dirname(filePath);
 
