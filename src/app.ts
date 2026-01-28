@@ -1,3 +1,4 @@
+import { corsConfig } from '@/config/cors';
 import { limiter } from '@/config/limiter';
 import { healthCheck } from '@/controllers/healthController';
 import { errorHandler } from '@/middleware/errorHandler';
@@ -13,7 +14,7 @@ export function createApp() {
 
 	app.set('trust proxy', 1);
 
-	app.use(cors());
+	app.use(cors(corsConfig));
 	app.use(helmet());
 
 	app.use(express.json());
