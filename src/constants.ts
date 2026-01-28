@@ -1,3 +1,5 @@
+const PORT = Number(process.env.PORT) || 3000;
+
 const NOTE_SCHEMA = {
 	TITLE: 'Текст заголовка не должен содержать специальных символов',
 	TITLE_EMPTY: 'Пустой заголовок',
@@ -17,8 +19,10 @@ const HttpCode = {
 	FORBIDDEN: 403,
 	NOT_FOUND: 404,
 	INTERNAL_SERVER_ERROR: 500,
+	SERVICE_UNAVAILABLE: 503,
 };
 
 const PATH_OF_API_LOG = './logs/api.log';
 
-export { HttpCode, NOTE_SCHEMA, PATH_OF_API_LOG };
+export { HttpCode, NOTE_SCHEMA, PATH_OF_API_LOG, PORT };
+

@@ -1,19 +1,29 @@
-'use strict';
+import { createApp } from '@/app';
+import { PORT } from '@/constants';
+import { dbClose, dbInit } from '@/db';
+import { setupGracefulShutdown } from '@/gracefulShutdown';
+import { logger } from '@/infrastructure/logger';
 
-import express from 'express';
-import { errorHandler } from './middleware/errorHandler';
+async function bootstrap() {
+	await dbInit();
 
-import { logger } from './infrastructure/logger/logger';
-import { requestLogger } from './middleware/requestLogger';
-import notesRoutes from './routes/notesRoutes';
-const app = express();
+	const app = createApp();
 
-app.use(express.json());
-app.use(requestLogger);
-app.use('/api/notes', notesRoutes);
+	const server = app.listen(PORT, () => {
+		logger.info('Server started');
+	});
 
-app.use(errorHandler);
+	setupGracefulShutdown({
+		server,
+		onShutdown: dbClose,
+		logger: {
+			info: (msg) => logger.info(msg),
+			error: (msg, err) => logger.error(err ? `${msg}: ${String(err)}` : msg),
+		},
+	});
+}
 
-app.listen(3000, () => {
-	logger.info('Server started');
+bootstrap().catch((err) => {
+	console.error('Startup failed:', err);
+	process.exit(1);
 });

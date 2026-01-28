@@ -1,5 +1,5 @@
+import { NOTE_SCHEMA } from '@/constants';
 import Joi from 'joi';
-import { NOTE_SCHEMA } from '../constants';
 
 const title = Joi.string()
 	.pattern(/^[A-Za-zА-Яа-яёЁ0-9]+$/)

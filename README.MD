@@ -14,7 +14,7 @@
 
 ```json
 {
-  "error": "message"
+	"error": "message"
 }
 ```
 
@@ -30,21 +30,19 @@
 
 ```json
 {
-  "title": "string",
-  "content": "string"
+	"title": "string",
+	"content": "string"
 }
 ```
 
 ### Валидация
 
 - `title` — **обязательное поле**
-
   - только буквы и цифры (латиница + кириллица)
   - минимум 1 символ
   - максимум 10 символов
 
 - `content` — **обязательное поле**
-
   - только буквы и цифры (латиница + кириллица)
   - минимум 1 символ
   - максимум 10 символов
@@ -60,11 +58,11 @@
 
 ```json
 {
-  "id": "uuid",
-  "title": "string",
-  "content": "string",
-  "createdAt": "ISO string",
-  "updatedAt": "ISO string"
+	"id": "uuid",
+	"title": "string",
+	"content": "string",
+	"createdAt": "ISO string",
+	"updatedAt": "ISO string"
 }
 ```
 
@@ -87,13 +85,13 @@
 
 ```json
 [
-  {
-    "id": "uuid",
-    "title": "string",
-    "content": "string",
-    "createdAt": "ISO string",
-    "updatedAt": "ISO string"
-  }
+	{
+		"id": "uuid",
+		"title": "string",
+		"content": "string",
+		"createdAt": "ISO string",
+		"updatedAt": "ISO string"
+	}
 ]
 ```
 
@@ -111,11 +109,11 @@
 
 ```json
 {
-  "id": "uuid",
-  "title": "string",
-  "content": "string",
-  "createdAt": "ISO string",
-  "updatedAt": "ISO string"
+	"id": "uuid",
+	"title": "string",
+	"content": "string",
+	"createdAt": "ISO string",
+	"updatedAt": "ISO string"
 }
 ```
 
@@ -137,8 +135,8 @@
 
 ```json
 {
-  "title": "string (optional)",
-  "content": "string (optional)"
+	"title": "string (optional)",
+	"content": "string (optional)"
 }
 ```
 
@@ -161,11 +159,11 @@
 
 ```json
 {
-  "id": "uuid",
-  "title": "string",
-  "content": "string",
-  "createdAt": "ISO string",
-  "updatedAt": "ISO string"
+	"id": "uuid",
+	"title": "string",
+	"content": "string",
+	"createdAt": "ISO string",
+	"updatedAt": "ISO string"
 }
 ```
 
@@ -214,6 +212,10 @@
 
 Учебный проект. Подготовлен к расширению:
 
-- подключение базы данных
 - авторизация
 - дополнительные сущности
+
+## Как запустить Postgres
+
+- npm run migrate:up
+- npm run dev

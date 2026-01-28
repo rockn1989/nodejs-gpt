@@ -1,3 +1,27 @@
-{"level":30,"time":1766321347859,"pid":26884,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Server started"}
-{"level":40,"time":1766321350961,"pid":26884,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"PUT","url":"/api/notes/c7d9ba45-0705-404d-be73-ff92b4bd76c4","statusCode":404,"durationMs":7,"msg":"HTTP client error"}
-{"level":30,"time":1766321369233,"pid":26884,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"GET","url":"/api/notes/","statusCode":200,"durationMs":2,"msg":"HTTP request"}
+{"level":30,"time":1769112879814,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB connected ✅"}
+{"level":30,"time":1769112879816,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Server started"}
+{"level":30,"time":1769112933652,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"PUT","url":"/api/notes/90d4e837-6c0a-4c25-b357-64d2e72db8a7","statusCode":200,"durationMs":54,"msg":"HTTP request"}
+{"level":30,"time":1769112944684,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"PUT","url":"/api/notes/90d4e837-6c0a-4c25-b357-64d2e72db8a7","statusCode":200,"durationMs":34,"msg":"HTTP request"}
+{"level":30,"time":1769112953936,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","err":{"type":"NotFoundError","message":"Note not found","stack":"Error: Note not found\n    at Object.getNoteById (E:\\проекты\\home\\nodejs-gpt\\src\\service\\notesService.ts:21:19)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async getOne (E:\\проекты\\home\\nodejs-gpt\\src\\controllers\\notesController.ts:14:15)","statusCode":404,"code":"NOT_FOUND","isOperational":true},"requestId":"c39e5879-4ecf-478f-9854-f4e2e1f38ead","msg":"Handled app error"}
+{"level":40,"time":1769112953940,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"GET","url":"/api/notes/805296c7-f591-4b21-a849-e7355a774857","statusCode":404,"durationMs":7,"msg":"HTTP client error"}
+{"level":30,"time":1769113099195,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Received SIGINT. Shutting down..."}
+{"level":30,"time":1769113099195,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"\nReceived SIGINT. Shutting down..."}
+{"level":30,"time":1769113099197,"pid":3052,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB closed 📴"}
+{"level":30,"time":1769113637608,"pid":25136,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB connected ✅"}
+{"level":30,"time":1769113637610,"pid":25136,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Server started"}
+{"level":30,"time":1769113644320,"pid":25136,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"GET","url":"/api/notes/","statusCode":200,"durationMs":16,"msg":"HTTP request"}
+{"level":30,"time":1769113692392,"pid":25136,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Received SIGINT. Shutting down..."}
+{"level":30,"time":1769113692392,"pid":25136,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"\nReceived SIGINT. Shutting down..."}
+{"level":30,"time":1769113692396,"pid":25136,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB closed 📴"}
+{"level":30,"time":1769113724487,"pid":24068,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB connected ✅"}
+{"level":30,"time":1769113724490,"pid":24068,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Server started"}
+{"level":30,"time":1769113728343,"pid":24068,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Received SIGINT. Shutting down..."}
+{"level":30,"time":1769113728343,"pid":24068,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"\nReceived SIGINT. Shutting down..."}
+{"level":30,"time":1769113728346,"pid":24068,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB closed 📴"}
+{"level":30,"time":1769626234834,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB connected ✅"}
+{"level":30,"time":1769626234839,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Server started"}
+{"level":30,"time":1769626259134,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"GET","url":"/api/notes/","statusCode":200,"durationMs":140,"msg":"HTTP request"}
+{"level":30,"time":1769626269477,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","method":"GET","url":"/health","statusCode":200,"durationMs":26,"msg":"HTTP request"}
+{"level":30,"time":1769627455081,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"Received SIGINT. Shutting down..."}
+{"level":30,"time":1769627455082,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"\nReceived SIGINT. Shutting down..."}
+{"level":30,"time":1769627455084,"pid":26992,"hostname":"DESKTOP-MQ05HNH","name":"api","msg":"DB closed 📴"}

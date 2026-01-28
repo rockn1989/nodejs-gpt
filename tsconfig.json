@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
-
     "rootDir": "./src",
     "outDir": "./dist",
-
     "module": "CommonJS",
     "target": "es2022",
-
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "lib": [
+      "ES2022"
+    ],
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
-
     // Style Options
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -17,14 +20,25 @@
     // "noUnusedParameters": true,
     // "noImplicitOverride": true,
     // "noPropertyAccessFromIndexSignature": true,
-
+    "exactOptionalPropertyTypes": true,
     // Recommended Options
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

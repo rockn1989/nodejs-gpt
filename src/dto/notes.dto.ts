@@ -1,11 +1,12 @@
-import { NoteResponse } from '../types/note';
+import { DbNote } from '@/repositories/notesRepository';
+import { NoteResponse } from '@/types/note';
 
-export function mapNoteToResponseDto(note: any): NoteResponse {
+export function mapNoteToResponseDto(note: DbNote): NoteResponse {
 	return {
 		id: note.id,
 		title: note.title,
 		content: note.content,
-		createdAt: note.createdAt.toISOString(),
-		updatedAt: note.updatedAt.toISOString(),
+		createdAt: new Date(note.createdAt).toISOString(),
+		updatedAt: new Date(note.updatedAt).toISOString(),
 	};
 }
