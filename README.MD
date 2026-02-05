@@ -184,6 +184,8 @@
 
 **204 No Content**
 
+Тело ответа отсутствует.
+
 ### Ошибки
 
 - `404` — заметка не найдена
@@ -215,7 +217,58 @@
 - авторизация
 - дополнительные сущности
 
-## Как запустить Postgres
+## Установка и запуск
 
-- npm run migrate:up
-- npm run dev
+### 1. Клонирование и установка зависимостей
+
+```bash
+git clone <repository-url>
+cd nodejs-gpt
+npm install
+```
+
+### 2. Настройка переменных окружения
+
+```bash
+# Скопируйте шаблон
+cp .env.example .env
+
+# Отредактируйте .env и укажите свои значения
+```
+
+**Обязательные переменные:**
+- `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` - параметры PostgreSQL
+- `ALLOWED_ORIGINS` - список разрешённых CORS origins (обязательно для production)
+
+### 3. Запуск PostgreSQL
+
+**Вариант A: Использовать существующий PostgreSQL**
+
+Убедитесь, что PostgreSQL запущен и доступен по параметрам из `.env`.
+
+**Вариант B: Запустить через Docker Compose (рекомендуется)**
+
+```bash
+docker-compose -f docker-compose.dev.yml up -d
+```
+
+Это запустит PostgreSQL на порту 5432 с дефолтными параметрами из `.env.example`.
+
+### 4. Применение миграций
+
+```bash
+npm run migrate:up
+```
+
+### 5. Запуск приложения
+
+```bash
+# Development режим с hot-reload
+npm run dev
+
+# Production режим
+npm run build
+npm start
+```
+
+API будет доступен по адресу: `http://localhost:3000` (или другой порт из `.env`)

@@ -34,11 +34,9 @@ const updateNote = async (id: string, data: UpdateNote): Promise<NoteResponse> =
 	return mapNoteToResponseDto(updated);
 };
 
-const deleteNote = async (id: string): Promise<NoteResponse> => {
+const deleteNote = async (id: string): Promise<void> => {
 	const deleted = await NotesRepository.remove(id);
 
 	if (!deleted) throw new NotFoundError('Note not found');
-
-	return mapNoteToResponseDto(deleted);
 };
 export { createNote, deleteNote, getAllNotes, getNoteById, updateNote };

@@ -26,8 +26,8 @@ const update = async (req: Request<NoteIdParam>, res: Response) => {
 };
 
 const remove = async (req: Request<NoteIdParam>, res: Response) => {
-	const deleted = await notesService.deleteNote(req.params.id);
-	res.status(HttpCode.OK).json(deleted);
+	await notesService.deleteNote(req.params.id);
+	res.status(HttpCode.DELETED).end();
 };
 
 export { create, getAll, getOne, remove, update };
