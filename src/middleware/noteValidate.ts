@@ -1,8 +1,9 @@
-import { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 import { ValidationError } from '@/errors/ValidationError';
-import { CreateNote } from '@/types/note';
-import Joi, { ObjectSchema } from 'joi';
+import type { CreateNote } from '@/types/note';
+import type { ObjectSchema } from 'joi';
+import Joi from 'joi';
 
 const noteValidate = (schema: ObjectSchema) => async (req: Request, res: Response, next: NextFunction) => {
 	const data: CreateNote = req.body;

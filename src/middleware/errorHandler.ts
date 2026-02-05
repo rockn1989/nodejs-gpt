@@ -1,6 +1,6 @@
 import { AppError } from '@/errors/AppError';
 import { mapPgError } from '@/errors/pgErrorMap';
-import { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 import { logger } from '@/infrastructure/logger';
 import { getRequestId } from './requestId';

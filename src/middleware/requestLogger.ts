@@ -1,5 +1,5 @@
 import { logger } from '@/infrastructure/logger';
-import { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 function requestLogger(req: Request, res: Response, next: NextFunction): void {
 	const start = process.hrtime.bigint();

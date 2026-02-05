@@ -1,6 +1,6 @@
 import { ValidationError } from '@/errors/ValidationError';
-import { NextFunction, Request, Response } from 'express';
-import { ObjectSchema } from 'joi';
+import type { NextFunction, Request, Response } from 'express';
+import type { ObjectSchema } from 'joi';
 
 export const validateParams = (schema: ObjectSchema) => (req: Request, res: Response, next: NextFunction): void => {
 	const { error, value } = schema.validate(req.params, { abortEarly: false, stripUnknown: true });

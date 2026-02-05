@@ -14,7 +14,7 @@ notesRoutes.get('/:id', validateParams(idParamSchema), notesController.getOne);
 
 notesRoutes.post('/', noteValidate(NoteCreateSchema), notesController.create);
 
-notesRoutes.put('/:id', noteValidate(NoteUpdateSchema), notesController.update);
+notesRoutes.put('/:id', validateParams(idParamSchema), noteValidate(NoteUpdateSchema), notesController.update);
 
 notesRoutes.delete('/:id', validateParams(idParamSchema), notesController.remove);
 

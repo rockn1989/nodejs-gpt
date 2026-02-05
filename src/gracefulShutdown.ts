@@ -15,18 +15,20 @@ export function setupGracefulShutdown({ server, onShutdown, logger }: ShutdownOp
 
 		logger?.info?.(`Received ${signal}. Shutting down...`) ?? logger?.info?.(`\nReceived ${signal}. Shutting down...`);
 
-		server.close(async (err) => {
+		server.close((err) => {
 			if (err) {
 				logger?.error?.('HTTP server close error', err) ?? console.error('HTTP server close error:', err);
 				process.exitCode = 1;
 			}
 
-			try {
-				await onShutdown();
-			} catch (e) {
-				logger?.error?.('Shutdown hook error', e) ?? console.error('Shutdown hook error:', e);
-				process.exitCode = 1;
-			}
+			void (async () => {
+				try {
+					await onShutdown();
+				} catch (e) {
+					logger?.error?.('Shutdown hook error', e) ?? console.error('Shutdown hook error:', e);
+					process.exitCode = 1;
+				}
+			})();
 		});
 	};
 

@@ -1,5 +1,5 @@
-import { DbNote } from '@/repositories/notesRepository';
-import { NoteResponse } from '@/types/note';
+import type { DbNote } from '@/repositories/notesRepository';
+import type { NoteResponse } from '@/types/note';
 
 export function mapNoteToResponseDto(note: DbNote): NoteResponse {
 	return {

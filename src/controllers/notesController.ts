@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 
 import { HttpCode } from '@/constants';
 import * as notesService from '@/service/notesService';
-import { NoteIdParam } from '@/types/note';
+import type { CreateNote, NoteIdParam, UpdateNote } from '@/types/note';
 
 const getAll = async (req: Request, res: Response) => {
 	const notes = await notesService.getAllNotes();
@@ -15,12 +15,12 @@ const getOne = async (req: Request<NoteIdParam>, res: Response) => {
 	res.status(HttpCode.OK).json(note);
 };
 
-const create = async (req: Request, res: Response) => {
+const create = async (req: Request<object, object, CreateNote>, res: Response) => {
 	const newNote = await notesService.createNote(req.body);
 	res.status(HttpCode.CREATED).json(newNote);
 };
 
-const update = async (req: Request<NoteIdParam>, res: Response) => {
+const update = async (req: Request<NoteIdParam, object, UpdateNote>, res: Response) => {
 	const updatedNote = await notesService.updateNote(req.params.id, req.body);
 	res.json(updatedNote);
 };

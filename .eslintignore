@@ -1,0 +1,24 @@
+# Build output
+dist/
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# JavaScript files (конфиги)
+*.js
+*.cjs
+
+# Migrations (могут быть JS)
+migrations/
+
+# Tests (пока не настроены)
+tests/
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.*

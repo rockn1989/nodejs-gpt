@@ -1,6 +1,6 @@
 import { HttpCode } from '@/constants';
 import { dbHealthCheck } from '@/db';
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 
 /**
  * Health check endpoint

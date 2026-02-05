@@ -1,4 +1,4 @@
-import { CreateNote, NoteResponse, UpdateNote } from '@/types/note';
+import type { CreateNote, NoteResponse, UpdateNote } from '@/types/note';
 
 import { mapNoteToResponseDto } from '@/dto/notes.dto';
 import { NotFoundError } from '@/errors/NotFoundError';
